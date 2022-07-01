@@ -45,14 +45,16 @@ public class CatTest {
         Date givenBirthDate = new Date();
         Integer givenId = 2;
 
-        // When (a cat is constructed)
+        // When (a cat is constructed, and we set a new name)
         Cat cat = new Cat(givenName, givenBirthDate, givenId);
+        String newName = "Jazz";
+        cat.setName(newName);
 
         // When (we retrieve data from the cat)
         String retrievedName = cat.getName();
 
         // Then (we expect the given data, to match the retrieved data)
-        Assert.assertEquals(givenName, retrievedName);
+        Assert.assertEquals(newName, retrievedName);
     }
     @Test
     public void testSetName2() {
@@ -61,14 +63,16 @@ public class CatTest {
         Date givenBirthDate = new Date();
         Integer givenId = -45;
 
-        // When (a cat is constructed)
+        // When (a cat is constructed, and we set a new name)
         Cat cat = new Cat(givenName, givenBirthDate, givenId);
+        String newName = "Jennifer";
+        cat.setName(newName);
 
         // When (we retrieve data from the cat)
         String retrievedName = cat.getName();
 
         // Then (we expect the given data, to match the retrieved data)
-        Assert.assertEquals(givenName, retrievedName);
+        Assert.assertEquals(newName, retrievedName);
     }
 
     @Test
@@ -101,4 +105,21 @@ public class CatTest {
         //Then
         Assert.assertNotEquals(expected, spoken);
     }
+
+    @Test
+    public void testSetBirthDate() {
+        // Given
+        String givenName = "Banana";
+        Date expected = new Date();
+        Integer givenId = 37;
+
+        // When
+        Cat cat = new Cat(givenName, null, givenId);
+        cat.setBirthDate(expected);
+        Date actual = cat.getBirthDate();
+
+        // Then
+        Assert.assertEquals(expected, actual);
+    }
+
 }
