@@ -14,12 +14,12 @@ import java.util.Date;
  */
 public class AnimalFactory {
     public static Dog createDog(String name, Date birthDate) {
-        Integer newId = DogHouse.getNumberOfDogs();
+        Integer newId = DogHouse.getNumberOfDogs() + 1;
         return new Dog(name, birthDate, newId);
     }
 
     public static Cat createCat(String name, Date birthDate) {
-        Integer newId = CatHouse.getNumberOfCats();
+        Integer newId = CatHouse.getNumberOfCats() + 1;
         return new Cat(name, birthDate, newId);
     }
 }
